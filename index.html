@@ -118,8 +118,11 @@
 				scene = new THREE.Scene();
 				clock = new THREE.Clock();
 
-
-				var geometry = new THREE.TorusBufferGeometry( 10, 3, 16, 100 );
+				var geometry = new THREE.TorusKnotBufferGeometry( 10, 3, 100, 16 );
+//var material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+//var  = new THREE.Mesh( geometry, material );
+//cene.add( torusKnot );
+				//var geometry = new THREE.TorusBufferGeometry( 10, 3, 16, 100 );
 				//var geometry = new THREE.BoxBufferGeometry( 0.75, 0.75, 0.75 );
 				uniforms1 = {
 					time: { value: 1.0 }
@@ -146,10 +149,7 @@
 					mesh.position.y = i % 2 - 1;
 					scene.add( mesh );
 				}
-				var loader = new THREE.ObjectLoader();
-loader.load('models/rain.json', function (object) {
-    scene.add(object);
-});
+
 // load a resource
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
