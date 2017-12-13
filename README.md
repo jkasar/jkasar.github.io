@@ -1,4 +1,4 @@
-# Test Shader01
+# Brainbow
 Hey!
 
 This is a repo containing **my first** time working with shaders and GLSL code :)
@@ -11,4 +11,3 @@ To the ***wonderful*** artists doing research into the field and sharing their w
 Mr. Doob: [link](https://threejs.org) (who’s engine for webGL I use in the project)
 Patricio Gonzalez Vivo & Jen Lowe: [link](https://thebookofshaders.com) (their excellent book on GLSL programming is ***HIGHLY*** informative)
 Nick Briz: [link](http://nickbriz.com) (amazing artist && provided much help along the way)
-
