@@ -1,3 +1,4 @@
+// old js for app
 //var THREE = require('three');
 var container;
 var camera, scene, renderer;
