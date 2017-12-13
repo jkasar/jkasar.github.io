@@ -146,20 +146,10 @@
 					mesh.position.y = i % 2 - 1;
 					scene.add( mesh );
 				}
-				var loader = new THREE.JSONLoader();
-				//loader.load( "models/wings.json", addModelToScene );
-				//loader.load( "models/glob.json", addModelToScene );
-				loader.load( "models/rain.json", addModelToScene );
-
-				function addModelToScene( geometry, material2 ) {
-					//var material = new THREE.MeshPhongMaterial({color: 0xffffff, side: THREE.BackSide});
-					var material2 = new THREE.MeshPhongMaterial({color: 0xffffff});
-						modelTwo = new THREE.Mesh( geometry, material2 );
-						modelTwo.position.set(0, -100, 0);
-						modelTwo.scale.set(500,500,500);
-						modelTwo.rotateY(Math.random() * 0.02 + 0.005);
-					scene.add( modelTwo );
-				};
+				var loader = new THREE.ObjectLoader();
+loader.load('models/rain.json', function (object) {
+    scene.add(object);
+});
 // load a resource
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
