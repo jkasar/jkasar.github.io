@@ -148,6 +148,19 @@
 				}
 
 				var loader = new THREE.JSONLoader();
+				//loader.load( "models/wings.json", addModelToScene );
+				//loader.load( "models/glob.json", addModelToScene );
+				loader.load( "models/rain.json", addModelToScene );
+
+				function addModelToScene( geometry, materials ) {
+					//var material = new THREE.MeshPhongMaterial({color: 0xffffff, side: THREE.BackSide});
+					var material = new THREE.MeshPhongMaterial({color: 0xffffff});
+						modelTwo = new THREE.Mesh( geometry, material );
+						modelTwo.position.set(0, -100, 0);
+						modelTwo.scale.set(500,500,500);
+						modelTwo.rotateY(Math.random() * 0.02 + 0.005);
+					scene.add( modelTwo );
+				}
 
 // load a resource
 loader.load(
