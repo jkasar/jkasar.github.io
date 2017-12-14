@@ -32,6 +32,7 @@
 		<!-- links to necessary files from three.js Library can be found online here: https://threejs.org/ -->
 		<script src="js/three.js"></script>
 		<script src="js/Detector.js"></script>
+    <script src="js/StereoEffect.js"></script>
 		<script src="js/Stats.js"></script>
 		<div id="container"></div>
 		<!-- script for GLSL code, this application shows the potential for having an array of multiple GLSL shaders running in your program  -->
@@ -109,7 +110,7 @@
 		if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
 		// declaring global variables
 		var container, stats;
-		var camera, scene, renderer, clock;
+		var camera, scene, renderer, clock, effect;
 		var uniforms1, uniforms2;
 		init();
 		animate();
@@ -154,6 +155,8 @@
 			renderer = new THREE.WebGLRenderer();
 			renderer.setPixelRatio( window.devicePixelRatio );
 			container.appendChild( renderer.domElement );
+      effect = new THREE.StereoEffect( renderer );
+				effect.setSize( window.innerWidth, window.innerHeight );
 			// code to append real time FPS counter to GUI
 			stats = new Stats();
 			//container.appendChild( stats.dom );
@@ -167,6 +170,7 @@
 			camera.aspect = window.innerWidth / window.innerHeight;
 			camera.updateProjectionMatrix();
 			renderer.setSize( window.innerWidth, window.innerHeight );
+      effect.setSize( window.innerWidth, window.innerHeight );
 		}
 		// animation loop; calling itself for recusive animations
 		function animate() {
@@ -185,7 +189,8 @@
 				object.rotation.y += delta * 0.2 * ( i % 2 ? 1 : -1 );
 				object.rotation.x += delta * 0.2 * ( i % 2 ? -1 : 1 );
 			}
-			renderer.render( scene, camera );
+      effect.render( scene, camera );
+			//renderer.render( scene, camera );
 		}
 		</script>
 	</body>
