@@ -156,7 +156,7 @@
 			renderer.setPixelRatio( window.devicePixelRatio );
 			container.appendChild( renderer.domElement );
       effect = new THREE.StereoEffect( renderer );
-				effect.setSize( window.innerWidth, window.innerHeight );
+				//effect.setSize( window.innerWidth, window.innerHeight );
 			// code to append real time FPS counter to GUI
 			stats = new Stats();
 			//container.appendChild( stats.dom );
@@ -189,8 +189,8 @@
 				object.rotation.y += delta * 0.2 * ( i % 2 ? 1 : -1 );
 				object.rotation.x += delta * 0.2 * ( i % 2 ? -1 : 1 );
 			}
-      effect.render( scene, camera );
-			//renderer.render( scene, camera );
+      //effect.render( scene, camera );
+			renderer.render( scene, camera );
 		}
 		</script>
 	</body>
